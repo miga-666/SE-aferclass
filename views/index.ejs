@@ -2,10 +2,35 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ./models/bs_css.ejs %>
   </head>
+
   <body>
-    <h1>Hi <%= username %></h1>
-    <p>Welcome to <%= title %></p>
+    <% include ./navbar.ejs %>
+
+    <div class="container">
+      <div class="row">
+        <div id="show" class="col-8 m-auto text-center">
+          <!--先用打字 之後去抓資料庫-->
+          下午 10 點上軟工課輔
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 m-auto">
+          <div class="row">
+            <div class="col-6 text-center">
+              <a href="/history" class="btn btn-dark w-50">歷史紀錄</a>
+            </div>
+            <div class="col-6 text-center">
+              <a href="/add" class="btn btn-dark  w-50">新增紀錄</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include ./models/bs_js.ejs %>
+    <script src="/javascripts/index.js"></script>
+
   </body>
 </html>

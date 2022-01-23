@@ -12,6 +12,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signUpRouter = require('./routes/signUp');
 var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
+var addRouter = require('./routes/add');
+var getRouter = require('./routes/api/get');
 
 //------
 var app = express();
@@ -29,6 +32,7 @@ let db_config = {
   user: 'root',
   password: ''
 }
+
 
 const connection = mysql.createPool(db_config);
 
@@ -55,6 +59,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/signUp', signUpRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
+app.use('/add', addRouter);
+app.use('/get', getRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -16,7 +16,7 @@ let checkLogin = (db, formdata) => {
         } else {
           if(rows[0]['username'] == formdata['username'] 
           && rows[0]['password'] == formdata['password']) {
-            rs(rows);
+            rs(rows[0]);
           } else {
             rj("username or password wrong");
           }
@@ -38,6 +38,8 @@ router.post('/', async function (req, res, next) {
       uid:userData['id'],
       username:userData['username']
     }
+    console.log("uid is", req.session.user.uid);
+    console.log("username is", req.session.user.username);
     res.redirect('/');
   } catch (error) {
     console.log(error);

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% include ./models/bs_css.ejs %>
+    <title>Document</title>
+</head>
+
+<body>
+  <% include ./navbar.ejs %>
+
+    <div class="container text-center">
+      <h1>新增事項</h1>
+      <form action="/add" method="post">
+        <div class="row">
+          <div class="col-5 m-auto border border-5 border-primary p-1">
+            <div class="row">
+              <div class="col-5">事項標題</div>
+              <div class="col-7"><input type="text" class="w-100" name="title"></div>
+            </div>
+            <div class="row">
+              <div class="col-5">日期</div>
+              <div class="col-7"><input type="date" class="w-100" name="date"></div>
+            </div>
+            <div class="row">
+              <div class="col-5">時間</div>
+              <div class="col-7"><input type="time" class="w-100" name="time"></div>
+            </div>
+            <div class="row">
+              <div class="col-5">備註</div>
+              <div class="col-7"><textarea type="text" class="w-100" name="ps" rows="5"></textarea></div>
+            </div>
+            <div class="row m-2">
+              <div class="col-8 m-auto">
+                <button class="btn btn-primary w-100" type="submit">送出</button>
+              </div>
+            </div>
+            <div class="row m-2">
+              <div class="col-8 m-auto ">
+                <a href="/" class="btn btn-primary w-100">取消</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <% include ./models/bs_js.ejs %>
+</body>
+
+</html>
