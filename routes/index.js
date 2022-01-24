@@ -60,9 +60,6 @@ router.get('/login', function (req, res, next) {
   res.render('login', { title: "express" });
 });
 
-// router.get('/add', function(req, res, next) {
-//   res.render('add', {title:"express"});
-// });
 
 
 module.exports = router;

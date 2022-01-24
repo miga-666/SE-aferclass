@@ -6,18 +6,19 @@
     <%= title %>
   </title>
   <% include ./models/bs_css.ejs %>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
 </head>
 
 <body style="font-family: 'Neucha', cursive;">
   <% include ./navbar.ejs %>
 
     <div class="container px-5">
-      <!--新增工作-->
+      <!--新增工作 form -->
       <div class="row text-center p-4">
         <form action="/" method="post" class="col-8 m-auto px-5 pt-4 py-2 border">
+          <p>Add a new jod</p>
           <div class="input-group mb-2">
             <span class="input-group-text pull-right">Title</span>
             <input type="text" class="form-control" name="title">
@@ -26,21 +27,21 @@
             <span class="input-group-text pull-right">Content</span>
             <input type="text" class="form-control" name="content">
           </div>
-          <button class="btn btn-warning" type="submit" onclick="">Add Job!</button>
+          <button class="btn btn-warning" type="submit">Add Job!</button>
         </form>
       </div>
-      <!--過濾-->
+      <!--過濾 (AJAX)-->
       <div class="row py-4">
         <div class="col-8 m-auto">
           <div class="row">
             <div class="col-4 text-center">
-              <button class="btn btn-dark fs-4" onclick="showALL()">List All</button>
+              <button class="btn btn-dark fs-4" id="all" onclick="showALL()">List All</button>
             </div>
             <div class="col-4 text-center">
-              <button class="btn btn-dark fs-4" onclick="showDone()">List Done</button>
+              <button class="btn btn-dark fs-4" id="done" onclick="showDone()">List Done</button>
             </div>
             <div class="col-4 text-center">
-              <button class="btn btn-dark fs-4" onclick="showUndone()">List Undone</button>
+              <button class="btn btn-dark fs-4" id="undone" onclick="showUndone()">List Undone</button>
             </div>
           </div>
         </div>
@@ -48,14 +49,12 @@
       <!--列出事項-->
       <div class="row text-center">
         <div id="show" class="text-center">
-          <!--去資料庫抓資料-->
+          <!--去後端處理-->
         </div>
       </div>
 
-
       <% include ./models/bs_js.ejs %>
         <script src="/javascripts/index.js"></script>
-
 </body>
 
 </html>

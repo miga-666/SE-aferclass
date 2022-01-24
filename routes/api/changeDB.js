@@ -1,10 +1,12 @@
+/* 到 DB 修改資料 */
+
 var express = require('express');
 var router = express.Router();
 var url = require('url');
-const { get } = require('express/lib/response');
 
+// setDone(): 將未完成的工作設為已完成
 let setDone = (db, id) => {
-  console.log("setDone id: ", id);
+  // console.log("setDone id: ", id);
   return new Promise((rs, rj) => {
     let sql = `UPDATE item SET isDone='1' WHERE id=?`;
     let params = [id];
@@ -23,17 +25,17 @@ let setDone = (db, id) => {
   });
 }
 
+/* 設定路由 */
 router.get('/done', async function (req, res, next) {
   try {
     //取得 url 傳來的 item id
     var url_parts = url.parse(req.url, true);
     var id = url_parts.query['id'];
-    console.log("router get id: ", id);
     await setDone(req.db, id);
-    res.send("OK");
+    res.redirect('/');
   } catch (error) {
     console.log(error);
-    res.send(error);
+    res.redirect('/');
   }
 });
 

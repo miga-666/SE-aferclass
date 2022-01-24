@@ -1,8 +1,7 @@
 var express = require('express');
-const res = require('express/lib/response');
 var router = express.Router();
 
-//檢查名字是否重複
+// checkDuplicate(): 到 DB 檢查 username 是否重複
 let checkDuplicate = (db, formdata) => {
   return new Promise((rs, rj) => {
     let sql = "SELECT username FROM user WHERE 1";
@@ -29,6 +28,7 @@ let checkDuplicate = (db, formdata) => {
   })
 }
 
+// writeDB(); 將註冊資料寫入 DB
 let writeDB = (db, formdata) => {
   return new Promise((rs, rj) => {
     let sql = "INSERT INTO `user`(`username`, `password`) VALUES (?, ?)";
@@ -44,12 +44,7 @@ let writeDB = (db, formdata) => {
   })
 }
 
-
-
-
-
-
-
+/* 設定路由 */
 router.post('/', async function (req, res, next) {
   let formdata = req.body;
   console.log(formdata);
@@ -65,7 +60,6 @@ router.post('/', async function (req, res, next) {
     res.redirect('/');
     // res.send('註冊失敗')
   }
-  //res.send('ok');
 });
 
 module.exports = router;
