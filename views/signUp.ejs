@@ -6,31 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <% include ./models/bs_css.ejs %>
-    <title>Document</title>
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+  
 </head>
 
-<body>
-  <div class="container text-center">
+<body style="font-family: 'Neucha', cursive;">
+  <div class="container text-center p-5">
     <form action="/signUp" method="post">
-      <h1>註冊頁面</h1>
+      <h1>Register</h1>
       <div class="row">
-        <div class="col-5 m-auto border border-5 border-primary p-1">
-          <div class="row">
+        <div class="col-5 m-auto p-1">
+          <div class="input-group mb-2">
+            <span class="input-group-text pull-right">Username</span>
+            <input type="text" class="form-control" name="username">
+          </div>
+          <!-- <div class="row">
             <div class="col-5">帳號</div>
             <div class="col-7"><input type="text" class="w-100" name="username"></div>
-          </div>
+          </div> -->
           <div class="row">
-            <div class="col-5">密碼</div>
-            <div class="col-7"><input type="password" class="w-100" name="password"></div>
-          </div>
-          <div class="row m-2">
-            <div class="col-8 m-auto">
-              <button class="btn btn-primary w-100" type="submit">送出</button>
+            <div class="input-group mb-2">
+              <span class="input-group-text pull-right">Password</span>
+              <input type="password" class="form-control" name="password">
             </div>
+            <!-- <div class="col-5">密碼</div>
+            <div class="col-7"><input type="password" class="w-100" name="password"></div> -->
           </div>
           <div class="row m-2">
-            <div class="col-8 m-auto ">
-              <a href="/login" class="btn btn-primary w-100">登入</a>
+            <div class="col-4 m-auto ">
+              <a href="/login" class="btn btn-outline-info w-100">Login</a>
+            </div>
+            <div class="col-4 m-auto">
+              <button class="btn btn-primary w-100" type="submit">Register</button>
             </div>
           </div>
         </div>

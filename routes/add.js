@@ -3,8 +3,8 @@ var router = express.Router();
 
 let insertItem = (db, uid, formdata) => {
   return new Promise((rs, rj) => {
-    let sql = 'INSERT INTO `item`(`uid`, `title`, `date`, `time`, `ps`) VALUES (?,?,?,?,?)';
-    let params = [uid, formdata['title'], formdata['date'], formdata['time'], formdata['ps']];
+    let sql = 'INSERT INTO `item`(`uid`, `title`, `date`, `time`, `content`) VALUES (?,?,?,?,?)';
+    let params = [uid, formdata['title'], formdata['date'], formdata['time'], formdata['content']];
     db.query(sql, params, (err, result) => {
       if(err){
         console.log("[INSERT ERROR] -", err);

@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mysql = require('mysql');
 var session = require('express-session');
+// var url = require('url');
+
 
 //把routes中的js拿出來用
 var indexRouter = require('./routes/index');
@@ -15,6 +17,7 @@ var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var addRouter = require('./routes/add');
 var getRouter = require('./routes/api/get');
+var changeDBRouter = require('./routes/api/changeDB');
 
 //------
 var app = express();
@@ -62,6 +65,7 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/add', addRouter);
 app.use('/get', getRouter);
+app.use('/changeDB', changeDBRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

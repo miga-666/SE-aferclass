@@ -58,10 +58,12 @@ router.post('/', async function (req, res, next) {
     console.log("checkDuplicate OK!!!!");
     await writeDB(req.db, formdata);
     console.log("writeDB OK!!!!");
-    res.send('OK')
+    // res.send('OK')
+    res.redirect('/');
   } catch (error){
     console.log(error);
-    res.send('註冊失敗')
+    res.redirect('/');
+    // res.send('註冊失敗')
   }
   //res.send('ok');
 });

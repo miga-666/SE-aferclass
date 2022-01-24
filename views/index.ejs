@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <% include ./models/bs_css.ejs %>
-  </head>
 
-  <body>
-    <% include ./navbar.ejs %>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <% include ./models/bs_css.ejs %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+</head>
 
-    <div class="container">
-      <div class="row">
-        <div id="show" class="col-8 m-auto text-center">
-          <!--先用打字 之後去抓資料庫-->
-          下午 10 點上軟工課輔
-        </div>
+<body style="font-family: 'Neucha', cursive;">
+  <% include ./navbar.ejs %>
+
+    <div class="container px-5">
+      <!--新增工作-->
+      <div class="row text-center p-4">
+        <form action="/" method="post" class="col-8 m-auto px-5 pt-4 py-2 border">
+          <div class="input-group mb-2">
+            <span class="input-group-text pull-right">Title</span>
+            <input type="text" class="form-control" name="title">
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-text pull-right">Content</span>
+            <input type="text" class="form-control" name="content">
+          </div>
+          <button class="btn btn-warning" type="submit" onclick="">Add Job!</button>
+        </form>
       </div>
-      <div class="row">
+      <!--過濾-->
+      <div class="row py-4">
         <div class="col-8 m-auto">
           <div class="row">
-            <div class="col-6 text-center">
-              <a href="/history" class="btn btn-dark w-50">歷史紀錄</a>
+            <div class="col-4 text-center">
+              <button class="btn btn-dark fs-4" onclick="showALL()">List All</button>
             </div>
-            <div class="col-6 text-center">
-              <a href="/add" class="btn btn-dark  w-50">新增紀錄</a>
+            <div class="col-4 text-center">
+              <button class="btn btn-dark fs-4" onclick="showDone()">List Done</button>
+            </div>
+            <div class="col-4 text-center">
+              <button class="btn btn-dark fs-4" onclick="showUndone()">List Undone</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!--列出事項-->
+      <div class="row text-center">
+        <div id="show" class="text-center">
+          <!--去資料庫抓資料-->
+        </div>
+      </div>
 
-    <% include ./models/bs_js.ejs %>
-    <script src="/javascripts/index.js"></script>
 
-  </body>
+      <% include ./models/bs_js.ejs %>
+        <script src="/javascripts/index.js"></script>
+
+</body>
+
 </html>
